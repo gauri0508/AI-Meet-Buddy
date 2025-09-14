@@ -20,9 +20,11 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://ai-meet-buddy.vercel.app', 'https://your-frontend-domain.vercel.app'] 
+    ? ['https://ai-meet-buddy.vercel.app', 'https://ai-meet-buddy-git-main-gauri0508.vercel.app', 'https://*.vercel.app'] 
     : ['http://localhost:3000'],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 

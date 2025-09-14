@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Plus, Search, Calendar, CheckCircle, Clock, AlertTriangle } from 'lucide-react'
-import axios from 'axios'
+import api from '../utils/api'
 import TaskList from '../components/TaskList'
 import TaskEditor from '../components/TaskEditor'
 import TaskCalendar from '../components/TaskCalendar'
@@ -65,7 +65,7 @@ const Dashboard = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('/api/tasks/dashboard')
+      const response = await api.get('/tasks/dashboard')
       setTasks(response.data)
     } catch (error) {
       console.error('Error fetching tasks:', error)
@@ -81,7 +81,7 @@ const Dashboard = () => {
     }
 
     try {
-      const response = await axios.get(`/api/tasks/search?q=${encodeURIComponent(searchQuery)}`)
+      const response = await api.get(`/tasks/search?q=${encodeURIComponent(searchQuery)}`)
       setFilteredTasks(response.data)
     } catch (error) {
       console.error('Error searching tasks:', error)

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { X, Save, Trash2, Calendar, User, Flag, Tag } from 'lucide-react'
-import axios from 'axios'
+import api from '../utils/api'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -66,7 +66,7 @@ const TaskEditor = ({ task, onClose, onUpdate, onDelete }) => {
     setIsLoading(true)
 
     try {
-      const response = await axios.put(`/api/tasks/${task._id}`, {
+      const response = await api.put(`/tasks/${task._id}`, {
         ...formData,
         deadline: formData.deadline ? formData.deadline.toISOString() : null
       })
@@ -82,7 +82,7 @@ const TaskEditor = ({ task, onClose, onUpdate, onDelete }) => {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this task?')) {
       try {
-        await axios.delete(`/api/tasks/${task._id}`)
+        await api.delete(`/tasks/${task._id}`)
         onDelete(task._id)
       } catch (error) {
         console.error('Error deleting task:', error)

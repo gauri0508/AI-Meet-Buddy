@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FileText, Loader2, ArrowLeft } from 'lucide-react'
-import axios from 'axios'
+import api from '../utils/api'
 
 const NewMeeting = () => {
   const [transcript, setTranscript] = useState('')
@@ -21,7 +21,7 @@ const NewMeeting = () => {
     setError('')
 
     try {
-      const response = await axios.post('/api/summarize', {
+      const response = await api.post('/summarize', {
         transcript: transcript.trim()
       })
 

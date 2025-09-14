@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon } from 'lucide-react'
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isSameDay, addMonths, subMonths, isToday } from 'date-fns'
-import axios from 'axios'
+import api from '../utils/api'
 
 const TaskCalendar = ({ onTaskSelect, onTaskUpdate, onTaskDelete }) => {
   const [currentDate, setCurrentDate] = useState(new Date())
@@ -16,7 +16,7 @@ const TaskCalendar = ({ onTaskSelect, onTaskUpdate, onTaskDelete }) => {
     try {
       const month = currentDate.getMonth() + 1
       const year = currentDate.getFullYear()
-      const response = await axios.get(`/api/tasks/calendar?month=${month}&year=${year}`)
+      const response = await api.get(`/tasks/calendar?month=${month}&year=${year}`)
       setTasks(response.data)
     } catch (error) {
       console.error('Error fetching calendar tasks:', error)
