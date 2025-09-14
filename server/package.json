@@ -1,0 +1,28 @@
+{
+  "name": "ai-meeting-summarizer-server",
+  "version": "1.0.0",
+  "description": "Backend for AI Meeting Summarizer & Task Manager",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "ai",
+    "meeting",
+    "summarizer",
+    "task-manager"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.12.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "mongoose": "^8.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
