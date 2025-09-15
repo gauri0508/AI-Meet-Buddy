@@ -27,11 +27,11 @@ A full-stack MERN application that uses AI to summarize meeting transcripts and 
 ### Backend
 - Node.js with Express.js
 - MongoDB with Mongoose
-- Hugging Face Inference API for AI processing
+- Gemini Inference API for AI processing
 - CORS enabled for cross-origin requests
 
 ### AI Integration
-- Hugging Face BART model for text summarization
+- Gemini model for text summarization
 - Custom task extraction logic with AI fallback
 
 ## 📦 Installation
@@ -39,7 +39,7 @@ A full-stack MERN application that uses AI to summarize meeting transcripts and 
 ### Prerequisites
 - Node.js (v16 or higher)
 - MongoDB (local or Atlas)
-- Hugging Face API key (free tier available)
+- Gemini API key (free tier available)
 
 ### Backend Setup
 
@@ -56,7 +56,7 @@ npm install
 3. Create a `.env` file in the server directory:
 ```env
 MONGODB_URI=mongodb://localhost:27017/ai-meeting-summarizer
-HUGGINGFACE_API_KEY=your_huggingface_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
 PORT=5000
 ```
 
@@ -84,12 +84,11 @@ npm run dev
 
 ## 🔑 Getting a Hugging Face API Key
 
-1. Go to [Hugging Face](https://huggingface.co/)
+1. Go to Google AI Studio
 2. Create an account or sign in
-3. Go to your profile settings
-4. Navigate to "Access Tokens"
-5. Create a new token with "Read" permissions
-6. Copy the token and add it to your `.env` file
+3. Navigate to API Keys from the left menu
+4. Click Create API Key and select a project (or create a new one)
+5. Copy the token and add it to your `.env` file
 
 ## 📱 Usage
 
@@ -125,7 +124,7 @@ npm run dev
 1. Connect your GitHub repository
 2. Set environment variables:
    - `MONGODB_URI`
-   - `HUGGINGFACE_API_KEY`
+   - `GEMINI_API_KEY`
    - `PORT`
 3. Deploy
 
@@ -194,7 +193,7 @@ If you encounter any issues:
 1. Check the console for error messages
 2. Verify your environment variables
 3. Ensure MongoDB is running
-4. Check your Hugging Face API key
+4. Check your Gemini Face API key
 
 ## 🔮 Future Enhancements
 
